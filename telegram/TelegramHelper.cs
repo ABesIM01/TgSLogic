@@ -12,14 +12,14 @@ namespace Forms
         {
             try
             {
-                string url = $"https://api.telegram.org/bot{botToken}/sendMessage?chat_id={chatId}&text={Uri.EscapeDataString(message)}";
+                string url =
+                    $"https://api.telegram.org/bot{botToken}/sendMessage" +
+                    $"?chat_id={chatId}&text={Uri.EscapeDataString(message)}";
+
                 await client.GetAsync(url);
             }
             catch
             {
-                // ТИХИЙ режим — ніяких MessageBox
-                // Можна записати лог у файл, якщо треба
-                // File.AppendAllText("tg_errors.log", ex.ToString());
             }
         }
     }
